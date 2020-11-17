@@ -1,21 +1,18 @@
 ## Project Description
 This project combines data from different files and tidies it into a clean dataset.
 
+
 ## Study design and data processing
 
-### Collection of the raw data Description of how the data was
-collected.
+### Collection of the raw data
+The data was downloaded from <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones" class="uri">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a> as a zipfile.
 
-### Notes on the original (raw) data Some additional notes (if
-avaialble, otherwise you can leave this section out).
 
 ## Creating the tidy datafile
 
 ### Guide to create the tidy data file Download the data from
-<a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones" class="uri">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a>
-and extract it to the same folder where ‘run_analysis.R’ is located.
-Run run_analysis.R to obtain the tidy datased, it will be called
-‘avgSummary’.
+Extract the data from the zipfile to the same folder where ‘run_analysis.R’ is located.
+Run run_analysis.R to obtain the tidy datased, it will be called ‘avgSummary’.
 
 ### Cleaning of the data
 
@@ -32,33 +29,38 @@ for each activity and each subject.
 
 ## Description of the variables in the avgSummary.txt file 
 - Dimensions
-of the dataset: 180 x 8 
-- Summary of the data: 
+of the dataset: 180 x 48
+- Summary of the data: mean and standard deviation values by subject and activity.
 - Variables present in
-the dataset: activity, subject, avg_meanX, avg_meanY, avg_meanZ,
-avg_stdX, avg_stdY, avg_stdZ
+the dataset: activity, subject, 
 
-### activity 
-
-Contains the activity performed by the subjects.
-
-Class: character 
+activity - activity performed by the subjects as a string. 
 Unique values of the variable: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 
-### subject 
+subject - Contains the index of the volunteer as a numeric value from 1 to 30.
 
-Contains the index of the volunteer.
+The next variables are available in two sets:
+- mean - mean value 
+- std -  standard deviation
 
-Class: numeric Unique values of the variable: 1 to 30.
 
-### avg_meanX, avg_meanY, avg_meanZ 
+The following are signals, where '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions
 
-Contains the average of the mean value for each axis (X, Y and Z).
+- tBodyAcc -XYZ - time for body acceleration signals 
+- tGravityAcc -XYZ - time for gravity acceleration signal
+- tBodyAccJerk - time for body linear acceleration signal
+- tBodyGyro -XYZ - time for body angular velocity signal 
+- tBodyGyroJerk -XYZ - time for body angular velocity Jerk signal
+- tBodyAccMag - time for body acceleration magnitude
+- tGravityAccMag - time for gravity acceleration magnitude
+- tBodyAccJerkMag - time for body acceleration Jerk signal magnitude
+- tBodyGyroMag - time for body gyroscope magnitute
+- tBodyGyroJerkMag-mean - time for body gyroscopic jerk magnitude
+- fBodyAcc -XYZ - frequency for body acceleration
+- fBodyAccJerk -XYZ - frequency for body acceleration Jerk signal 
+- fBodyGyro -XYZ -  frequency for body gyroscopic acceleration 
+- fBodyAccMag - frequency for body acceleration magnitude
+- fBodyBodyAccJerkMag - frequency for body acceleraction Jerk signal magnitude
+- fBodyBodyGyroMag - frequency for body gyroscopic magnitude
+- fBodyBodyGyroJerkMag - frequency for body gyroscopic Jerk signal magnitude
 
-Class: numeric
-
-### avg_stdX, avg_stdY, avg_stdZ 
-
-Contains the average of the standard deviation for each axis (X, Y and Z).
-
-Class: numeric
