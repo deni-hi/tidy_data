@@ -45,19 +45,19 @@ Contains the activity performed by the subjects.
 Class: character 
 Unique values of the variable: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 
-###subject 
+### subject 
 
 Contains the index of the volunteer.
 
 Class: numeric Unique values of the variable: 1 to 30.
 
-###avg_meanX, avg_meanY, avg_meanZ 
+### avg_meanX, avg_meanY, avg_meanZ 
 
 Contains the average of the mean value for each axis (X, Y and Z).
 
 Class: numeric
 
-###avg_stdX, avg_stdY, avg_stdZ 
+### avg_stdX, avg_stdY, avg_stdZ 
 
 Contains the average of the standard deviation for each axis (X, Y and Z).
 
