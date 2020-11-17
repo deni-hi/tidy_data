@@ -7,15 +7,15 @@ featureData<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/
 testActivityData<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt", col.names = "activity")
 testSubjectData<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt", col.names = "subject")
 testData<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt", 
-                     col.names = featureData$featName,
                      numerals= c("no.loss"))
+colnames(testData)<- featureData$featName
 testCombinedData<-cbind(testData, testActivityData, testSubjectData)
 
 trainActivityData<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt", col.names = "activity")
 trainSubjectData<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt", col.names = "subject")
 trainData<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt", 
-                     col.names = featureData$featName,
                      numerals= c("no.loss"))
+colnames(trainData)<- featureData$featName
 trainCombinedData<-cbind(trainData, trainActivityData, trainSubjectData)
 
 mergedData<-rbind(testCombinedData, trainCombinedData)
@@ -25,7 +25,7 @@ mergedData<-rbind(testCombinedData, trainCombinedData)
 # each measurement.
 library("dplyr") # needed for 'select'
 library("tidyselect") # needed for 'contains'
-meanAndStandardDev<-select(mergedData, contains(c(".mean", ".sdt", "activity", "subject")))
+meanAndStandardDev<-select(mergedData, contains(c("-mean", "-std", "activity", "subject")))
 
 
 # STEP 3 - Use descriptive activity names to name the activities in the data set.
